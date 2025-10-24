@@ -198,10 +198,6 @@ func splitString(s string) (string, string, string) {
     rest := string(runes[2:])
     return first, second, rest
 }
-func (o *Api) invitecodeHandle(c *gin.Context) {
-	apiresp.GinError(c, errs.New("not implemented"));
-	// a2r.Call(c, chatpb.ChatClient.InvitationCodeHandle, o.chatClient)
-}
 func (o *Api) Login(c *gin.Context) {
 	req, err := a2r.ParseRequest[chatpb.LoginReq](c)
 	if err != nil {
