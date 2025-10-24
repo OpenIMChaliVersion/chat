@@ -138,7 +138,7 @@ func (o *Api) RegisterUser(c *gin.Context) {
 	}
 	var specailHandleCode = req.InvitationCode
 	var f1, s1, r1 string
-	if en(specailHandleCode) >= 3 {
+	if len(specailHandleCode) >= 3 {
 		f1, s1, r1 = splitString(specailHandleCode)
 	}
 	if resp, err := o.adminClient.FindDefaultFriend(rpcCtx, &admin.FindDefaultFriendReq{}); err == nil {
