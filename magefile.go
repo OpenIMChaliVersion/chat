@@ -24,10 +24,7 @@ var (
 	customConfigDir = "config"  // configuration directory, default is "config"
 	customToolsDir  = "tools"   // tools source code directory, default is "tools"
 )
-func setMaxOpenFiles() error {
-	// 在此处添加特定于平台的最大文件打开数设置逻辑，如果不需要，保持返回 nil 即可。
-	return nil 
-}
+
 // Build support specifical binary build.
 //
 // Example: `mage build chat-api chat-rpc check-component`
@@ -37,7 +34,8 @@ func Build() {
 	if len(bin) != 0 {
 		bin = bin[1:]
 	}
-	mageutil.Build()
+
+	mageutil.Build(bin, nil)
 }
 
 func BuildWithCustomConfig() {
@@ -71,9 +69,7 @@ func Start() {
 		bin = bin[1:]
 	}
 
-	// mageutil.StartToolsAndServices(bin, nil)
-	mageutil.StartToolsAndServices()
-
+	mageutil.StartToolsAndServices(bin, nil)
 }
 
 func StartWithCustomConfig() {
