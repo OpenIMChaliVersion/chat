@@ -26,7 +26,7 @@ import (
 	"github.com/openimsdk/chat/pkg/protocol/admin"
 	"github.com/openimsdk/chat/pkg/protocol/common"
 )
-
+// 注册管理
 func (o *adminServer) AddDefaultFriend(ctx context.Context, req *admin.AddDefaultFriendReq) (*admin.AddDefaultFriendResp, error) {
 	if _, err := mctx.CheckAdmin(ctx); err != nil {
 		return nil, err
